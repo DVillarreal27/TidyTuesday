@@ -31,12 +31,11 @@ cats_uk_use<- cats_uk %>%
   pivot_longer(cols= location_long:location_lat,
                names_to= "speed_for_height",
                values_to = "values") %>% ##combine ground speed used for height gained
-  summarise(mean_vals = mean(values, na.rm = TRUE)) %>%
+  group_by(tag_id) %>%
   ggplot(data= cats_uk_use,
          aes(x=ground_speed,
              y=height_above_ellipsoid))+
-  geom_hline()
-
+  geom_dotplot()
 view(cats_uk_use)
 
 
