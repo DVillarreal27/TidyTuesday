@@ -35,19 +35,24 @@ view(cats_uk_reference)
 cats_uk_test <- cats_uk %>%
   filter(algorithm_marked_outlier == "FALSE",  ##remove outliers for algorithm and manually marked outliers
          manually_marked_outlier == "FALSE",
-         ground_speed > 0,
-         height_above_ellipsoid > 0) %>%
+         ground_speed > 0,  #get data that is above 0 ground speed
+         height_above_ellipsoid > 0) %>%  #filtered out data that has less that 0 height above ellopsoid
 ggplot(data=cats_uk_test,
-         aes(x=ground_speed,
+         aes(x=ground_speed, #setting up x and y axis on graph
            y=height_above_ellipsoid))+
   geom_line()+
-  facet_wrap(~tag_id)
+  facet_wrap(~tag_id)+ #create new graphs for the different tag_id
+  theme(axis.text.x = element_text(size = 7, angle = 90), #changed the size of the x and y points and the angle
+        plot.title= element_text(size = 15),
+        axis.text.y= element_text(size= 7))+ #changed title size
+  labs(x= "Speed on ground",
+       y= "Hight above ellopsoid",
+       title= "Speed used for ellopsoid height")
 
-ggsave(here("third_TidyTuesday","output","jumping_height"),
+ggsave(here("third_TidyTuesday","output","jumping_height.png"),
        width = 7, height = 5)
 view(cats_uk_test)
 
-view(shbshbs)
 
 
 
