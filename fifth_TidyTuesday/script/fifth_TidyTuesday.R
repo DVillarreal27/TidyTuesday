@@ -23,3 +23,5 @@ edited_drugs%>%
   labs(title= "Amount of drugs safe for humans",  #Change of titles
        x= "Patient safety",
        y="Drug count")
+ggsave(here("fifth_TidyTuesday","output","drugs.png"),
+       width = 7, height = 5)

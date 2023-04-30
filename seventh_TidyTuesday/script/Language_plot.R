@@ -19,6 +19,7 @@ filter_langauge%>%
        y= "Sematic Scholar",
        title = "Amount of times a Language is shown in sematic scholars") #changing the title names
   
-
+ggsave(here("seventh_TidyTuesday","output","scholar.png"),
+       width = 7, height = 5)
 
 view(filter_langauge)
