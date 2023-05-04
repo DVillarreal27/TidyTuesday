@@ -1,6 +1,11 @@
 #seventh TidyTuesday
 #done by: David Villarreal
 
+#library
+library(here)
+library(tidyverse)
+library(ggplot2)
+
 #data
 languages <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-03-21/languages.csv')
 
